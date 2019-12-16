@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace resxgen
@@ -27,32 +24,45 @@ namespace resxgen
             _root = _doc.SelectSingleNode("root");
         }
 
-        public void AddRecords(Dictionary<string, string> data)
+        public void AddRecords(List<Data> data)
         {
             foreach (var rec in data)
             {
-                AddRecord(rec.Key, rec.Value);
+                AddRecord(rec.Name, rec.Value, rec.Comment);
             }
         }
 
-        public Dictionary<string, string> ReadRecords()
+        public List<Data> ReadRecords()
         {
-            var records = new Dictionary<string, string>();
-            foreach (XmlElement node in _root.ChildNodes)
+            var records = new List<Data>();
+            try
             {
-                if (node.Name == "data")
+                foreach (XmlNode node in _root.ChildNodes)
                 {
-                    var key = node.GetAttribute("name");
-                    string value = "";
-                    foreach (XmlElement n in node.ChildNodes)
+                    if (node.Name == "data")
                     {
-                        if (n.Name == "value")
+                        var name = ((XmlElement)node).GetAttribute("name");
+                        string value = "", comment = "";
+                        foreach (XmlNode n in node.ChildNodes)
                         {
-                            value = n.InnerText;
+                            if (n.Name == "value")
+                            {
+                                value = n.InnerText;
+                            }
+                            else if (n.Name == "comment")
+                            {
+                                comment = n.InnerText;
+                            }
                         }
+                        records.Add(new Data(name, value, comment));
                     }
-                    records.Add(key, value);
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"Parse xaml file failed: {ex.Message}");
+                Console.Error.WriteLine($"{ex.StackTrace}");
+                return null;
             }
             return records;
         }
@@ -64,19 +74,19 @@ namespace resxgen
         ///     <comment>Comment</comment>
         /// </data>
         /// </summary>
-        public void AddRecord(string key, string value, string comment = null)
+        public void AddRecord(string name, string value, string comment)
         {
             var rec = _doc.CreateElement("data");
             var xelName = _doc.CreateAttribute("name");
             var xelSpace = _doc.CreateAttribute("xml:space");
-            xelName.InnerText = key;
+            xelName.InnerText = name;
             xelSpace.InnerText = "preserve";
             rec.SetAttributeNode(xelName);
             rec.SetAttributeNode(xelSpace);
-            AddElement(rec, "value", value);
+            AddNode(rec, "value", value);
             if (!string.IsNullOrEmpty(comment))
             {
-                AddElement(rec, "comment", comment);
+                AddNode(rec, "comment", comment);
             }
             _root.AppendChild(rec);
         }
@@ -86,12 +96,11 @@ namespace resxgen
             _doc.Save(path);
         }
 
-        private XmlElement AddElement(XmlElement root, string key, string value)
+        private void AddNode(XmlElement parent, string name, string value)
         {
-            var ele = _doc.CreateElement(key);
+            var ele = _doc.CreateElement(name);
             ele.InnerText = value;
-            root.AppendChild(ele);
-            return ele;
+            parent.AppendChild(ele);
         }
     }
 }

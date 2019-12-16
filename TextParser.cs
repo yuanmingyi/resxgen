@@ -1,43 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace resxgen
 {
     class TextParser
     {
-        public static Dictionary<string, string> Parse(string filepath, string sep = "=")
+        public static List<Data> Parse(string filepath, string sep = "=")
         {
-            var dict = new Dictionary<string, string>();
-            int lineno = 0;
-            foreach (var line in File.ReadLines(filepath))
+            var dict = new List<Data>();
+            var lines = File.ReadAllLines(filepath);
+            string comment = null;
+            for (int lineno = 0; lineno < lines.Length; lineno++)
             {
-                lineno++;
-                if (line.StartsWith("#") || string.IsNullOrWhiteSpace(line))
+                var line = lines[lineno];
+                if (line.StartsWith("#:"))
+                {
+                    // add comment
+                    comment = line.Substring(2);
+                }
+                else if (line.StartsWith("#") || string.IsNullOrWhiteSpace(line))
                 {
                     // skip the comments and empty lines
-                    continue;
+                    comment = null;
                 }
-                var idx = line.IndexOf(sep);
-                if (idx < 0)
+                else
                 {
-                    Console.Error.WriteLine($"Invalid format in line {lineno}: {line}");
-                    return null;
+                    var idx = line.IndexOf(sep);
+                    if (idx < 0)
+                    {
+                        Console.Error.WriteLine($"Invalid format in line {lineno+1}: {line}");
+                        return null;
+                    }
+                    dict.Add(new Data(line.Substring(0, idx), line.Substring(idx + 1), comment));
+                    comment = null;
                 }
-                dict.Add(line.Substring(0, idx), line.Substring(idx+1));
             }
             return dict;
         }
 
-        public static void Dump(Dictionary<string, string> records, string filepath, string sep = "=")
+        public static void Dump(List<Data> records, string filepath, string sep = "=", bool extraLine = false)
         {
             var lines = new List<string>();
             foreach (var rec in records)
             {
-                lines.Add($"{rec.Key}{sep}{rec.Value}\n");
+                if (!string.IsNullOrEmpty(rec.Comment))
+                {
+                    // add comment
+                    lines.Add($"#:{rec.Comment}");
+                }
+                lines.Add($"{rec.Name}{sep}{rec.Value}{(extraLine ? "\n" : "")}");
             }
             File.WriteAllLines(filepath, lines);
         }

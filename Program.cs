@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 
 namespace resxgen
 {
@@ -13,108 +9,100 @@ namespace resxgen
     {
         static void Main(string[] args)
         {
-            List<string> src = new List<string>();
-            string sep = "=";
-            string dir = Directory.GetCurrentDirectory();
-            string outdir = dir;
-            bool inv = false;
             if (args.Length < 1)
             {
-                Console.WriteLine($"Usage: {Process.GetCurrentProcess().ProcessName} [-dir <source dir>] [-outdir <target dir>] [-sep <seperate character>] <dictionaries...>");
+
+                Console.WriteLine(ArgumentsParser.Usage(Process.GetCurrentProcess().ProcessName));
                 return;
             }
-            for (int i = 0; i < args.Length; i++)
+
+            ArgumentsParser parser = new ArgumentsParser(args);
+            if (parser.Error != null)
             {
-                var arg = args[i];
-                if (arg == "-sep")
-                {
-                    if (i == args.Length - 1)
-                    {
-                        Console.Error.WriteLine("Seperator missing");
-                        return;
-                    }
-                    sep = args[++i];
-                }
-                else if (arg == "-i")
-                {
-                    inv = true;
-                }
-                else if (arg == "-dir")
-                {
-                    if (i == args.Length - 1)
-                    {
-                        Console.Error.WriteLine("Directory missing");
-                        return;
-                    }
-                    dir = args[++i];
-                }
-                else if (arg == "-outdir")
-                {
-                    if (i == args.Length - 1)
-                    {
-                        Console.Error.WriteLine("Output directory missing");
-                        return;
-                    }
-                    outdir = args[++i];
-                } 
-                else
-                {
-                    if (arg.ToLowerInvariant().EndsWith(".txt"))
-                    {
-                        // remove the extension
-                        arg = Path.GetFileNameWithoutExtension(arg);
-                    }
-                    else
-                    {
-                        arg = Path.GetFileName(arg);
-                    }
-                    src.Add(arg);
-                }
+                Console.Error.WriteLine(parser.Error);
+                return;
             }
-            Console.WriteLine($"dir: {dir}");
-            Console.WriteLine($"outdir: {outdir}");
-            Console.WriteLine($"sep: {sep}\n");
-            foreach (var dict in src)
+
+            Console.WriteLine($"dir: {parser.Dir}");
+            Console.WriteLine($"outdir: {parser.Outdir}");
+            Console.WriteLine($"Inverse: {parser.Inverse}");
+            Console.WriteLine($"ExtraLine: {parser.ExtraLine}");
+            Console.WriteLine($"sep: {parser.Sep}\n");
+            foreach (var dict in parser.Dicts)
             {
-                if (inv)
+                if (parser.Inverse)
                 {
-                    Resx2Text(dir, outdir, sep, dict);
+                    Resx2Text(parser.Dir, parser.Outdir, parser.Sep, dict, parser.ExtraLine);
                 }
                 else
                 {
-                    Text2Resx(dir, outdir, sep, dict);
+                    Text2Resx(parser.Dir, parser.Outdir, parser.Sep, dict);
                 }
             }
         }
 
-        private static void Resx2Text(string dir, string outdir, string sep, string dict)
+        private static List<string> GetAllLanguageDictionaries(string filebase, string dir, string ext)
         {
-            throw new NotImplementedException();
+            var files = new List<string>();
+            if (dir == "")
+            {
+                dir = Path.GetDirectoryName(filebase);
+                filebase = Path.GetFileName(filebase);
+            }
+            // make up source filename
+            var path = Path.Combine(dir, $"{filebase}{ext}");
+            if (!File.Exists(path))
+            {
+                Console.WriteLine($"Dictionary not found: {path}");
+                return files;
+            }
+            files.Add(path);
+            files.AddRange(Directory.GetFiles(dir, $"{filebase}.*{ext}", SearchOption.TopDirectoryOnly));
+            return files;
+        }
+
+        private static void Resx2Text(string dir, string outdir, string sep, string dict, bool extraLine)
+        {
+            var filepaths = GetAllLanguageDictionaries(dict, dir, ".resx");
+            foreach (var path in filepaths)
+            {
+                var resxGen = new ResxGenerator(path);
+                var records = resxGen.ReadRecords();
+                if (records == null || records.Count == 0)
+                {
+                    continue;
+                }
+                string filebase = Path.GetFileNameWithoutExtension(path);
+                Console.WriteLine($"Dictionary {filebase} parsed");
+                if (outdir == "")
+                {
+                    outdir = Path.GetDirectoryName(path);
+                }
+                var textPath = Path.Combine(outdir, $"{filebase}.txt");
+                TextParser.Dump(records, textPath, sep, extraLine);
+                Console.WriteLine($"{textPath} saved");
+            }
         }
 
         private static void Text2Resx(string dir, string outdir, string sep, string dict)
         {
-            // make up source filename
-            var path = Path.Combine(dir, $"{dict}.txt");
-            if (!File.Exists(path))
+            var filepaths = GetAllLanguageDictionaries(dict, dir, ".txt");
+            foreach (var path in filepaths)
             {
-                Console.WriteLine($"Dictionary not found: {dict}.txt");
-                return;
-            }
-            var files = new List<string>() { path };
-            files.AddRange(Directory.GetFiles(dir, $"{dict}.*.txt", SearchOption.TopDirectoryOnly));
-            foreach (var file in files)
-            {
-                var strings = TextParser.Parse(file, sep);
-                if (strings == null)
+                var resxGen = new ResxGenerator();
+                var records = TextParser.Parse(path, sep);
+                if (records == null || records.Count == 0)
                 {
                     continue;
                 }
-                string filename = Path.GetFileNameWithoutExtension(file);
-                Console.WriteLine($"Dictionary {filename} parsed");
-                var resxGen = new ResxGenerator();
-                resxGen.AddRecords(strings);
-                var resxPath = Path.Combine(outdir, $"{filename}.resx");
+                string filebase = Path.GetFileNameWithoutExtension(path);
+                Console.WriteLine($"Dictionary {filebase} parsed");
+                if (outdir == "")
+                {
+                    outdir = Path.GetDirectoryName(path);
+                }
+                var resxPath = Path.Combine(outdir, $"{filebase}.resx");
+                resxGen.AddRecords(records);
                 resxGen.Save(resxPath);
                 Console.WriteLine($"{resxPath} saved");
             }

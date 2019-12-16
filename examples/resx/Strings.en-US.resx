@@ -1,0 +1,983 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Menu.Debug" xml:space="preserve">
+    <value>Debug</value>
+    <comment>调试菜单</comment>
+  </data>
+  <data name="Menu.Debug.RadDocking" xml:space="preserve">
+    <value>Print RadDocking Layout</value>
+    <comment>调试-查看窗口布局层次菜单项</comment>
+  </data>
+  <data name="Menu.File" xml:space="preserve">
+    <value>_File</value>
+    <comment>文件菜单</comment>
+  </data>
+  <data name="Menu.File.CloseProject" xml:space="preserve">
+    <value>Close Project</value>
+    <comment>文件-关闭项目菜单项</comment>
+  </data>
+  <data name="Menu.File.Exit" xml:space="preserve">
+    <value>Exit</value>
+    <comment>文件-退出菜单项</comment>
+  </data>
+  <data name="Menu.File.LoadLayout" xml:space="preserve">
+    <value>Load layout</value>
+    <comment>文件-加载布局菜单项</comment>
+  </data>
+  <data name="Menu.File.OpenFile" xml:space="preserve">
+    <value>Open File...</value>
+    <comment>文件-打开文件菜单项</comment>
+  </data>
+  <data name="Menu.File.OpenProject" xml:space="preserve">
+    <value>Open Project...</value>
+    <comment>文件-打开项目菜单项</comment>
+  </data>
+  <data name="Menu.File.SaveFile" xml:space="preserve">
+    <value>Save File</value>
+    <comment>文件-保存文件菜单项</comment>
+  </data>
+  <data name="Menu.File.SaveFileAs" xml:space="preserve">
+    <value>Save File As...</value>
+    <comment>文件-另存为菜单项</comment>
+  </data>
+  <data name="Menu.File.SaveLayout" xml:space="preserve">
+    <value>Save layout</value>
+    <comment>文件-保存布局菜单项</comment>
+  </data>
+  <data name="Menu.File.SaveProject" xml:space="preserve">
+    <value>Save Project</value>
+    <comment>文件-保存项目菜单项</comment>
+  </data>
+  <data name="Menu.Help" xml:space="preserve">
+    <value>_Help</value>
+    <comment>帮助菜单</comment>
+  </data>
+  <data name="Menu.Help.About" xml:space="preserve">
+    <value>About...</value>
+    <comment>帮助-关于菜单项</comment>
+  </data>
+  <data name="Menu.Window" xml:space="preserve">
+    <value>_Window</value>
+    <comment>窗口菜单</comment>
+  </data>
+  <data name="Menu.Window.Management" xml:space="preserve">
+    <value>Window Management...</value>
+    <comment>窗口-窗口管理菜单项</comment>
+  </data>
+  <data name="Menu.Window.Views" xml:space="preserve">
+    <value>Views</value>
+    <comment>窗口-视图菜单项</comment>
+  </data>
+  <data name="Menu.Window.Windows" xml:space="preserve">
+    <value>Windows</value>
+    <comment>窗口-窗口菜单项</comment>
+  </data>
+  <data name="Mode.DeviceStatus" xml:space="preserve">
+    <value>Device Status</value>
+    <comment>设备状态模式</comment>
+  </data>
+  <data name="Mode.ScanImage" xml:space="preserve">
+    <value>Scan Image</value>
+    <comment>扫描图像模式</comment>
+  </data>
+  <data name="Mode.SpectrumChart" xml:space="preserve">
+    <value>Spectrum</value>
+    <comment>光谱曲线模式</comment>
+  </data>
+  <data name="ScanImageToolbar.ElectronEnabled" xml:space="preserve">
+    <value>Elect. Sig.</value>
+    <comment>扫描图像工具栏-电子信号</comment>
+  </data>
+  <data name="ScanImageToolbar.FluoEnabled" xml:space="preserve">
+    <value>Fluo. Sig.</value>
+    <comment>扫描图像工具栏-阴极荧光信号</comment>
+  </data>
+  <data name="ScanImageToolbar.PointsPerPixel.16" xml:space="preserve">
+    <value>16</value>
+    <comment>扫描图像工具栏-每像素采集点数-16</comment>
+  </data>
+  <data name="ScanImageToolbar.PointsPerPixel.8" xml:space="preserve">
+    <value>8</value>
+    <comment>扫描图像工具栏-每像素采集点数-8</comment>
+  </data>
+  <data name="ScanImageToolbar.RegionEnabled" xml:space="preserve">
+    <value>Scan in Region</value>
+    <comment>扫描图像工具栏-选区扫描</comment>
+  </data>
+  <data name="ScanImageToolbar.Resolution.1024" xml:space="preserve">
+    <value>1024x1024</value>
+    <comment>扫描图像工具栏-分辨率-1024</comment>
+  </data>
+  <data name="ScanImageToolbar.Resolution.2048" xml:space="preserve">
+    <value>2048x2048</value>
+    <comment>扫描图像工具栏-分辨率-2048</comment>
+  </data>
+  <data name="ScanImageToolbar.Resolution.512" xml:space="preserve">
+    <value>512x512</value>
+    <comment>扫描图像工具栏-分辨率-512</comment>
+  </data>
+  <data name="ScanImageToolbar.ScanMode.Linear" xml:space="preserve">
+    <value>Linear</value>
+    <comment>扫描图像工具栏-扫描模式-线性扫描</comment>
+  </data>
+  <data name="ScanImageToolbar.ScanMode.StepChange" xml:space="preserve">
+    <value>Step</value>
+    <comment>扫描图像工具栏-扫描模式-阶跃扫描</comment>
+  </data>
+  <data name="ScanImageToolbar.ScanMode.StepWaveform" xml:space="preserve">
+    <value>Step Waveform</value>
+    <comment>扫描图像工具栏-扫描模式-阶跃波形扫描</comment>
+  </data>
+  <data name="ScanImageToolbar.SampleInterval.100ns" xml:space="preserve">
+    <value>100ns</value>
+    <comment>扫描图像工具栏-采样间隔-100ns</comment>
+  </data>
+  <data name="ScanImageToolbar.SampleInterval.10us" xml:space="preserve">
+    <value>10us</value>
+    <comment>扫描图像工具栏-采样间隔-10us</comment>
+  </data>
+  <data name="ScanImageToolbar.SampleInterval.15us" xml:space="preserve">
+    <value>15us</value>
+    <comment>扫描图像工具栏-采样间隔-15us</comment>
+  </data>
+  <data name="ScanImageToolbar.SampleInterval.1us" xml:space="preserve">
+    <value>1us</value>
+    <comment>扫描图像工具栏-采样间隔-1us</comment>
+  </data>
+  <data name="ScanImageToolbar.SampleInterval.200ns" xml:space="preserve">
+    <value>200ns</value>
+    <comment>扫描图像工具栏-采样间隔-200ns</comment>
+  </data>
+  <data name="ScanImageToolbar.SampleInterval.2us" xml:space="preserve">
+    <value>2us</value>
+    <comment>扫描图像工具栏-采样间隔-2us</comment>
+  </data>
+  <data name="ScanImageToolbar.SampleInterval.30us" xml:space="preserve">
+    <value>30us</value>
+    <comment>扫描图像工具栏-采样间隔-30us</comment>
+  </data>
+  <data name="ScanImageToolbar.SampleInterval.500ns" xml:space="preserve">
+    <value>500ns</value>
+    <comment>扫描图像工具栏-采样间隔-500ns</comment>
+  </data>
+  <data name="ScanImageToolbar.SampleInterval.5us" xml:space="preserve">
+    <value>5us</value>
+    <comment>扫描图像工具栏-采样间隔-5us</comment>
+  </data>
+  <data name="ScanImageToolbar.PointsPerPixel.1" xml:space="preserve">
+    <value>1</value>
+    <comment>扫描图像工具栏-每像素采集点数-1</comment>
+  </data>
+  <data name="ScanImageToolbar.PointsPerPixel.2" xml:space="preserve">
+    <value>2</value>
+    <comment>扫描图像工具栏-每像素采集点数-2</comment>
+  </data>
+  <data name="ScanImageToolbar.PointsPerPixel.4" xml:space="preserve">
+    <value>4</value>
+    <comment>扫描图像工具栏-每像素采集点数-4</comment>
+  </data>
+  <data name="Window.Title.DeviceStatus" xml:space="preserve">
+    <value>Device status</value>
+    <comment>窗口-标题-设备状态</comment>
+  </data>
+  <data name="Window.Title.ElectronScanImage" xml:space="preserve">
+    <value>Electron Scan Image</value>
+    <comment>窗口-标题-电子扫描图像</comment>
+  </data>
+  <data name="Window.Title.FluorescenceScanImage" xml:space="preserve">
+    <value>Fluorescence Scan Image</value>
+    <comment>窗口-标题-阴极荧光扫描图像</comment>
+  </data>
+  <data name="Window.Title.ScanError" xml:space="preserve">
+    <value>Scan Error</value>
+    <comment>窗口-标题-扫描错误</comment>
+  </data>
+  <data name="Window.Title.ElectronSignalListenerError" xml:space="preserve">
+    <value>Electron Signal Listener Error</value>
+    <comment>窗口-标题-电子信号监听错误</comment>
+  </data>
+  <data name="Window.Title.FluorescenceSignalListenerError" xml:space="preserve">
+    <value>Fluorescence Signal Listener Error</value>
+    <comment>窗口-标题-阴极荧光信号监听错误</comment>
+  </data>
+  <data name="ScanImageToolbar.Resolution.8" xml:space="preserve">
+    <value>8x8</value>
+    <comment>扫描图像工具栏-分辨率-8</comment>
+  </data>
+  <data name="ScanImageToolbar.QuickSettings.EmptyText" xml:space="preserve">
+    <value>Select a Setting</value>
+    <comment>扫描图像工具栏-快速设置-默认文本</comment>
+  </data>
+  <data name="PropertiesPane.Header.Key" xml:space="preserve">
+    <value>Name</value>
+    <comment>属性窗口-标题栏-属性名称</comment>
+  </data>
+  <data name="PropertiesPane.Header.Value" xml:space="preserve">
+    <value>Value</value>
+    <comment>属性窗口-标题栏-属性值</comment>
+  </data>
+  <data name="Window.Title.Properties" xml:space="preserve">
+    <value>Properties</value>
+    <comment>窗口-标题-属性</comment>
+  </data>
+  <data name="ScanProperties.AcquistionDate" xml:space="preserve">
+    <value>Acquistion Date</value>
+    <comment>扫描属性-采集时间</comment>
+  </data>
+  <data name="ScanProperties.PointsPerPixel" xml:space="preserve">
+    <value>Points Per Pixel for Average</value>
+    <comment>扫描属性-每像素样本数</comment>
+  </data>
+  <data name="ScanProperties.SampleInterval" xml:space="preserve">
+    <value>Sampling interval</value>
+    <comment>扫描属性-采样间隔</comment>
+  </data>
+  <data name="ScanProperties.ScanMode" xml:space="preserve">
+    <value>Scan Mode</value>
+    <comment>扫描属性-扫描模式</comment>
+  </data>
+  <data name="ScanProperties.ScanRegion.Left" xml:space="preserve">
+    <value>Scan Region Left</value>
+    <comment>扫描属性-扫描区域-左</comment>
+  </data>
+  <data name="ScanProperties.ScanRegion.Size" xml:space="preserve">
+    <value>Scan Region Size</value>
+    <comment>扫描属性-分辨率</comment>
+  </data>
+  <data name="ScanProperties.ScanRegion.Height" xml:space="preserve">
+    <value>Scan Region Height</value>
+    <comment>扫描属性-扫描区域-高</comment>
+  </data>
+  <data name="ScanProperties.ScanRegion.Top" xml:space="preserve">
+    <value>Scan Region Top</value>
+    <comment>扫描属性-扫描区域-上</comment>
+  </data>
+  <data name="ScanProperties.ScanRegion.Width" xml:space="preserve">
+    <value>Scan Region Width</value>
+    <comment>扫描属性-扫描区域-宽</comment>
+  </data>
+  <data name="ScanProperties.TimeUnit.MicroSecond" xml:space="preserve">
+    <value>us</value>
+    <comment>扫描属性-时间单位-微秒</comment>
+  </data>
+  <data name="ScanProperties.TimeUnit.MillisSecond" xml:space="preserve">
+    <value>ms</value>
+    <comment>扫描属性-时间单位-毫秒</comment>
+  </data>
+  <data name="ScanProperties.TimeUnit.NanoSecond" xml:space="preserve">
+    <value>ns</value>
+    <comment>扫描属性-时间单位-纳秒</comment>
+  </data>
+  <data name="ScanProperties.TimeUnit.Second" xml:space="preserve">
+    <value>s</value>
+    <comment>扫描属性-时间单位-秒</comment>
+  </data>
+  <data name="ScanImageToolbar.RegionMaskEnabled" xml:space="preserve">
+    <value>Show Mask</value>
+    <comment>扫描图像工具栏-显示遮挡层在非扫描区域</comment>
+  </data>
+  <data name="LogViewer.Button.Close" xml:space="preserve">
+    <value>Close</value>
+    <comment>日志窗口-按钮-关闭</comment>
+  </data>
+  <data name="LogViewer.Button.OpenFolder" xml:space="preserve">
+    <value>Open Folder</value>
+    <comment>日志窗口-按钮-打开文件夹</comment>
+  </data>
+  <data name="LogViewer.Filter.Error" xml:space="preserve">
+    <value>Error</value>
+    <comment>日志窗口-过滤-错误</comment>
+  </data>
+  <data name="LogViewer.Filter.Information" xml:space="preserve">
+    <value>Information</value>
+    <comment>日志窗口-过滤-信息</comment>
+  </data>
+  <data name="LogViewer.Filter.Warning" xml:space="preserve">
+    <value>Warning</value>
+    <comment>日志窗口-过滤-警告</comment>
+  </data>
+  <data name="Window.Title.LogViewer" xml:space="preserve">
+    <value>Log Viewer</value>
+    <comment>窗口-标题-日志查看器</comment>
+  </data>
+  <data name="Window.Title.OpenFileError" xml:space="preserve">
+    <value>Open File Error</value>
+    <comment>窗口-标题-打开文件错误</comment>
+  </data>
+  <data name="Window.Content.CreateLogFolderFailedTemplate" xml:space="preserve">
+    <value>Create folder for logs failed: {0}\n{1}</value>
+    <comment>窗口-内容-创建日志文件夹失败模板</comment>
+  </data>
+  <data name="Window.Title.Error" xml:space="preserve">
+    <value>Error</value>
+    <comment>窗口-标题-错误</comment>
+  </data>
+  <data name="OscilloscopeDevicePane.GeneralSettings.Title" xml:space="preserve">
+    <value>General Settings</value>
+    <comment>示波器设备页-通用设置-标题</comment>
+  </data>
+  <data name="WaveformGeneratorDevicePane.GeneralSettings.Calibrate" xml:space="preserve">
+    <value>Calibrate</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.GeneralSettings.DeviceNameFormatter" xml:space="preserve">
+    <value>Device Name: {0}</value>
+    <comment>波形发生器设备页-通用设置-设备名称</comment>
+  </data>
+  <data name="WaveformGeneratorDevicePane.GeneralSettings.Phase" xml:space="preserve">
+    <value>Phase Samples:</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.GeneralSettings.RefreshDevice" xml:space="preserve">
+    <value>Refresh Status</value>
+    <comment>波形发生器设备页-通用设置-刷新设备</comment>
+  </data>
+  <data name="WaveformGeneratorDevicePane.GeneralSettings.SamplingMultiplier" xml:space="preserve">
+    <value>Sampling Multiplier (Refer to Acquiring)</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.GeneralSettings.SelfTestDevice" xml:space="preserve">
+    <value>Self Test</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.GeneralSettings.Title" xml:space="preserve">
+    <value>General Settings</value>
+    <comment>波形发生器设备页-通用设置-标题</comment>
+  </data>
+  <data name="WaveformGeneratorDevicePane.OutputSettings.ChannelXAxis" xml:space="preserve">
+    <value>Channel X</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.OutputSettings.ChannelYAxis" xml:space="preserve">
+    <value>Channel Y</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.OutputSettings.EnableAnalogFilter" xml:space="preserve">
+    <value>Enable Analog Filter</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.OutputSettings.EnableDigitalFilter" xml:space="preserve">
+    <value>Enable Digital Filter</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.OutputSettings.LoadImpedance" xml:space="preserve">
+    <value>Load Impedance</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.OutputSettings.OutputImpedance" xml:space="preserve">
+    <value>Output Impedance</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.OutputSettings.ChannelXGain" xml:space="preserve">
+    <value>Gain for Channel X:</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.OutputSettings.Title" xml:space="preserve">
+    <value>Output Settings</value>
+    <comment>波形发生器设备页-输出设置-标题</comment>
+  </data>
+  <data name="WaveformGeneratorDevicePane.TimingSettings.SampleClockMode" xml:space="preserve">
+    <value>Sample Clock Mode:</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.TimingSettings.SampleClockSource" xml:space="preserve">
+    <value>Sample Clock Source:</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.TimingSettings.Title" xml:space="preserve">
+    <value>Timing Settings</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.GeneralSettings.ConnectDevice" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.GeneralSettings.DisconnectDevice" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="Window.Title.NIFgenDeviceStatus" xml:space="preserve">
+    <value>NIFgen Device</value>
+  </data>
+  <data name="Window.Title.NIScopeDeviceStatus" xml:space="preserve">
+    <value>NIScope Device</value>
+  </data>
+  <data name="DeviceStatusWindow.Content.ConnectFailedAndTrySimulate" xml:space="preserve">
+    <value>Connect to device failed. Would you try simulate  mode instead?</value>
+  </data>
+  <data name="DeviceStatusWindow.Header.TrySimulate" xml:space="preserve">
+    <value>Try Simulate?</value>
+  </data>
+  <data name="MessageBox.Button.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="MessageBox.Button.No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="MessageBox.Button.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="MessageBox.Button.Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Utility.OhmFormatter" xml:space="preserve">
+    <value>{0} Ohm</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.OutputSettings.ClockModeAutomatic" xml:space="preserve">
+    <value>Automatic</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.OutputSettings.ClockModeDivideDown" xml:space="preserve">
+    <value>Divide Down</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.OutputSettings.ClockModeHighResolution" xml:space="preserve">
+    <value>High Resolution</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.OutputSettings.InfinityImpedance" xml:space="preserve">
+    <value>Infinity</value>
+  </data>
+  <data name="OscilloscopeDevicePane.AcquisitionSettings.Title" xml:space="preserve">
+    <value>Acquisition Settings</value>
+  </data>
+  <data name="OscilloscopeDevicePane.GeneralSettings.Calibrate" xml:space="preserve">
+    <value>Self Calibration</value>
+  </data>
+  <data name="OscilloscopeDevicePane.GeneralSettings.ConnectDevice" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="OscilloscopeDevicePane.GeneralSettings.DisconnectDevice" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="OscilloscopeDevicePane.GeneralSettings.SelectSelfCalibrateOption" xml:space="preserve">
+    <value>Select the Self Calibration Option:</value>
+  </data>
+  <data name="OscilloscopeDevicePane.GeneralSettings.RefreshDevice" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="OscilloscopeDevicePane.GeneralSettings.SelfTestDevice" xml:space="preserve">
+    <value>Self Test</value>
+  </data>
+  <data name="OscilloscopeDevicePane.GeneralSettings.Simulate" xml:space="preserve">
+    <value>Simulated</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.DeviceInfo.SelectDevice" xml:space="preserve">
+    <value>Select NIFgen Device:</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.DeviceInfo.Title" xml:space="preserve">
+    <value>Device Info</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.ErrorInfo.Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.ErrorInfo.HardwareState" xml:space="preserve">
+    <value>Hardware State:</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.ErrorInfo.Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.ErrorInfo.Title" xml:space="preserve">
+    <value>Error Info</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.GeneralSettings.Simulate" xml:space="preserve">
+    <value>Simulated</value>
+  </data>
+  <data name="OscilloscopeDevicePane.AcquisitionSettings.AcquisitionType" xml:space="preserve">
+    <value>Acquisition Type:</value>
+  </data>
+  <data name="OscilloscopeDevicePane.AcquisitionSettings.AllowMoreRecordsThanMemory" xml:space="preserve">
+    <value>Allow Fetching More Records Than Memory</value>
+  </data>
+  <data name="OscilloscopeDevicePane.AcquisitionSettings.DefaultNumberOfPointsPerRecord" xml:space="preserve">
+    <value>Default Number of Points Per Record</value>
+  </data>
+  <data name="OscilloscopeDevicePane.AcquisitionSettings.EnforceRealtime" xml:space="preserve">
+    <value>Enforce Realtime</value>
+  </data>
+  <data name="OscilloscopeDevicePane.AcquisitionSettings.NumberOfRecords" xml:space="preserve">
+    <value>Number of Records</value>
+  </data>
+  <data name="OscilloscopeDevicePane.AcquisitionSettings.ReferencePosition" xml:space="preserve">
+    <value>Reference Position</value>
+  </data>
+  <data name="OscilloscopeDevicePane.ChannelSettings.ChannelName" xml:space="preserve">
+    <value>Channel Name</value>
+  </data>
+  <data name="OscilloscopeDevicePane.ChannelSettings.InputImpedance" xml:space="preserve">
+    <value>Input Impedance</value>
+  </data>
+  <data name="OscilloscopeDevicePane.ChannelSettings.InputImpedanceFormatter" xml:space="preserve">
+    <value>{0} Ohm</value>
+  </data>
+  <data name="OscilloscopeDevicePane.ChannelSettings.MaxInputFrequency" xml:space="preserve">
+    <value>Max Input Frequency (Hz) (0 for Auto)</value>
+  </data>
+  <data name="OscilloscopeDevicePane.ChannelSettings.ProbeAttenuation" xml:space="preserve">
+    <value>Probe Attenuation</value>
+  </data>
+  <data name="OscilloscopeDevicePane.ChannelSettings.ProbeAttenuationFormatter" xml:space="preserve">
+    <value>{0} X</value>
+  </data>
+  <data name="OscilloscopeDevicePane.ChannelSettings.Title" xml:space="preserve">
+    <value>Channel Settings</value>
+  </data>
+  <data name="OscilloscopeDevicePane.ChannelSettings.VerticalCoupling" xml:space="preserve">
+    <value>Vertical Coupling</value>
+  </data>
+  <data name="OscilloscopeDevicePane.ChannelSettings.VerticalOffset" xml:space="preserve">
+    <value>Vertical Offset (Volts)</value>
+  </data>
+  <data name="OscilloscopeDevicePane.ChannelSettings.VerticalRange" xml:space="preserve">
+    <value>Vertical Range (Volts) (i.e. 2 for -1 ~ 1V)</value>
+  </data>
+  <data name="OscilloscopeDevicePane.DeviceInfo.SelectDevice" xml:space="preserve">
+    <value>Select NIScope Device:</value>
+  </data>
+  <data name="OscilloscopeDevicePane.DeviceInfo.Title" xml:space="preserve">
+    <value>Device Info</value>
+  </data>
+  <data name="OscilloscopeDevicePane.DriverOperationEvent.Coercion" xml:space="preserve">
+    <value>Coercion</value>
+  </data>
+  <data name="OscilloscopeDevicePane.DriverOperationEvent.InterchangeCheck" xml:space="preserve">
+    <value>Interchange Check</value>
+  </data>
+  <data name="OscilloscopeDevicePane.DriverOperationEvent.MessageFormatter" xml:space="preserve">
+    <value>Message: {0}</value>
+  </data>
+  <data name="OscilloscopeDevicePane.DriverOperationEvent.Title" xml:space="preserve">
+    <value>Driver Operation Event</value>
+  </data>
+  <data name="OscilloscopeDevicePane.DriverOperationEvent.TypeFormatter" xml:space="preserve">
+    <value>Type: {0}</value>
+  </data>
+  <data name="OscilloscopeDevicePane.DriverOperationEvent.Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="DeviceInfoView.BusNumberFormatter" xml:space="preserve">
+    <value>Bus Number: {0}</value>
+  </data>
+  <data name="DeviceInfoView.ChassisNumberFormatter" xml:space="preserve">
+    <value>Chassis Number: {0}</value>
+  </data>
+  <data name="DeviceInfoView.ModelFormatter" xml:space="preserve">
+    <value>Model: {0}</value>
+  </data>
+  <data name="DeviceInfoView.NameFormatter" xml:space="preserve">
+    <value>Resource Name: {0}</value>
+  </data>
+  <data name="DeviceInfoView.SerialNumberFormatter" xml:space="preserve">
+    <value>Serial Number: {0}</value>
+  </data>
+  <data name="DeviceInfoView.SlotNumberFormatter" xml:space="preserve">
+    <value>Slot Number: {0}</value>
+  </data>
+  <data name="DeviceInfoView.SocketNumberFormatter" xml:space="preserve">
+    <value>Socket Number: {0}</value>
+  </data>
+  <data name="OscilloscopeDevicePane.ChannelSettings.ElectronChannelSetting" xml:space="preserve">
+    <value>Electronical Channel Settings</value>
+  </data>
+  <data name="OscilloscopeDevicePane.ChannelSettings.FluorescenceChannelSetting" xml:space="preserve">
+    <value>Fluorescent Channel Settings</value>
+  </data>
+  <data name="WaveformGeneratorDevicePane.OutputSettings.ChannelYGain" xml:space="preserve">
+    <value>Gain for Channel Y:</value>
+  </data>
+  <data name="DeviceStatusWindow.Content.InitializeFailedAndTrySimulateFormatter" xml:space="preserve">
+    <value>Initialize device {0} failed. Would you try simulate mode instead?</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdDevice.ChipSizeFormatter" xml:space="preserve">
+    <value>Chip Size: {0}</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdDevice.DescriptionFormatter" xml:space="preserve">
+    <value>Description: {0}</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdDevice.FirmwareFormatter" xml:space="preserve">
+    <value>Firmware: {0}</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdDevice.NameFormatter" xml:space="preserve">
+    <value>Name: {0}</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdDevice.SelectDevice" xml:space="preserve">
+    <value>Select a CCD</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdDevice.Title" xml:space="preserve">
+    <value>CCD</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.AcquisitionFormat" xml:space="preserve">
+    <value>Acq. Format</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.Adc" xml:space="preserve">
+    <value>ADC</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.AreaXBin" xml:space="preserve">
+    <value>X Bin</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.AreaXEnd" xml:space="preserve">
+    <value>X End</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.AreaXStart" xml:space="preserve">
+    <value>X Start</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.AreaYBin" xml:space="preserve">
+    <value>Y Bin</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.AreaYEnd" xml:space="preserve">
+    <value>Y End</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.AreaYStart" xml:space="preserve">
+    <value>Y Start</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.Gain" xml:space="preserve">
+    <value>Gain</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.InitializeDevice" xml:space="preserve">
+    <value>Initialize</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.RefreshDevice" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.Simulate" xml:space="preserve">
+    <value>Simulate</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.Title" xml:space="preserve">
+    <value>CCD General Settings</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.UninitializeDevice" xml:space="preserve">
+    <value>Uninitialize</value>
+  </data>
+  <data name="SynerJYDevicePane.MonoCommands.InitializeDevice" xml:space="preserve">
+    <value>Initialize</value>
+  </data>
+  <data name="SynerJYDevicePane.MonoCommands.RefreshDevice" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="SynerJYDevicePane.MonoCommands.Simulate" xml:space="preserve">
+    <value>Simulate</value>
+  </data>
+  <data name="SynerJYDevicePane.MonoCommands.Title" xml:space="preserve">
+    <value>Mono Commands:</value>
+  </data>
+  <data name="SynerJYDevicePane.MonoCommands.UninitializeDevice" xml:space="preserve">
+    <value>Uninitialize</value>
+  </data>
+  <data name="SynerJYDevicePane.MonoDevice.SelectDevice" xml:space="preserve">
+    <value>Select a monochromator:</value>
+  </data>
+  <data name="SynerJYDevicePane.MonoDevice.Title" xml:space="preserve">
+    <value>Monochromator</value>
+  </data>
+  <data name="SynerJYDevicePane.DeviceStatus.Initialized" xml:space="preserve">
+    <value>Initialized</value>
+  </data>
+  <data name="SynerJYDevicePane.DeviceStatus.Initializing" xml:space="preserve">
+    <value>Initializing...</value>
+  </data>
+  <data name="SynerJYDevicePane.DeviceStatus.Uninitialized" xml:space="preserve">
+    <value>Uninitialized</value>
+  </data>
+  <data name="Window.Title.SynerJYDeviceStatus" xml:space="preserve">
+    <value>SynerJY Devices</value>
+    <comment>窗口-标题-SynerJY设备</comment>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.SaveAreaParams" xml:space="preserve">
+    <value>Save Area Parameters</value>
+  </data>
+  <data name="SpectrumChartToolbar.AcquireCount.1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="SpectrumChartToolbar.AcquireCount.2" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="SpectrumChartToolbar.AcquireCount.3" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="SpectrumChartToolbar.AcquireCount.4" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="SpectrumChartToolbar.AcquireCount.5" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="SpectrumChartToolbar.AcquireTime.100us" xml:space="preserve">
+    <value>100us</value>
+  </data>
+  <data name="SpectrumChartToolbar.AcquireTime.10us" xml:space="preserve">
+    <value>10us</value>
+  </data>
+  <data name="SpectrumChartToolbar.AcquireTime.15us" xml:space="preserve">
+    <value>15us</value>
+  </data>
+  <data name="SpectrumChartToolbar.AcquireTime.1ms" xml:space="preserve">
+    <value>1ms</value>
+  </data>
+  <data name="SpectrumChartToolbar.AcquireTime.1us" xml:space="preserve">
+    <value>1us</value>
+  </data>
+  <data name="SpectrumChartToolbar.AcquireTime.200us" xml:space="preserve">
+    <value>200us</value>
+  </data>
+  <data name="SpectrumChartToolbar.AcquireTime.2us" xml:space="preserve">
+    <value>2us</value>
+  </data>
+  <data name="SpectrumChartToolbar.AcquireTime.30us" xml:space="preserve">
+    <value>30us</value>
+  </data>
+  <data name="SpectrumChartToolbar.AcquireTime.500us" xml:space="preserve">
+    <value>500us</value>
+  </data>
+  <data name="SpectrumChartToolbar.AcquireTime.5us" xml:space="preserve">
+    <value>5us</value>
+  </data>
+  <data name="Window.Title.SpectrumListenerError" xml:space="preserve">
+    <value>Fetching Spectrum Data Error</value>
+    <comment>窗口-标题-采集光谱错误</comment>
+  </data>
+  <data name="Window.Title.SpectrumChart" xml:space="preserve">
+    <value>Spectrum Chart</value>
+    <comment>窗口-标题-光谱曲线</comment>
+  </data>
+  <data name="Window.Title.StartGenerationError" xml:space="preserve">
+    <value>Generating Signals Error</value>
+    <comment>窗口-标题-信号发生器错误</comment>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.UseDataEventApi" xml:space="preserve">
+    <value>Use Acquisitioin Api With Update-Data Event</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.UsePollingApi" xml:space="preserve">
+    <value>Use Polling Acquisition Api</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdGeneralSettings.ShutdownDevice" xml:space="preserve">
+    <value>Shutdown</value>
+  </data>
+  <data name="SpectrumChartViewModel.Properties.AcquireCount" xml:space="preserve">
+    <value>Acquire Count</value>
+  </data>
+  <data name="SpectrumChartViewModel.Properties.AcquireTime" xml:space="preserve">
+    <value>Acquire Time</value>
+  </data>
+  <data name="SpectrumChartViewModel.Properties.CenterWavelength" xml:space="preserve">
+    <value>Center Wavelength</value>
+  </data>
+  <data name="SpectrumChartViewModel.Properties.DetectorType" xml:space="preserve">
+    <value>Detector</value>
+  </data>
+  <data name="SpectrumChartViewModel.Properties.FrontEntrance" xml:space="preserve">
+    <value>Front Entrance</value>
+  </data>
+  <data name="SpectrumChartViewModel.Properties.FrontExit" xml:space="preserve">
+    <value>Front Exit</value>
+  </data>
+  <data name="SpectrumChartViewModel.Properties.Grating" xml:space="preserve">
+    <value>Grating</value>
+  </data>
+  <data name="SpectrumChartViewModel.Properties.SideEntrance" xml:space="preserve">
+    <value>Side Entrance</value>
+  </data>
+  <data name="SpectrumChartViewModel.Properties.SideExit" xml:space="preserve">
+    <value>Side Exit</value>
+  </data>
+  <data name="Mode.RegionalSpectrumChart" xml:space="preserve">
+    <value>Spectrum (Customized Region)</value>
+  </data>
+  <data name="Window.Title.SpectrumIntensity" xml:space="preserve">
+    <value>Spectrum Intensity Image</value>
+  </data>
+  <data name="Window.Title.RegionalSpectrumChart" xml:space="preserve">
+    <value>Regional Spectrum Chart</value>
+  </data>
+  <data name="ScanProperties.FullSampleSize" xml:space="preserve">
+    <value>Full Sample Size</value>
+  </data>
+  <data name="ScanProperties.ScanRegion.Bottom" xml:space="preserve">
+    <value>Scan Region Bottom</value>
+  </data>
+  <data name="ScanProperties.ScanRegion.Right" xml:space="preserve">
+    <value>Scan Region Right</value>
+  </data>
+  <data name="ScanImageToolbar.QuickSettings.AddSettingButtonText" xml:space="preserve">
+    <value>Add Setting</value>
+  </data>
+  <data name="ScanImageToolbar.QuickSettings.RemoveSettingButtonText" xml:space="preserve">
+    <value>Remove Setting</value>
+  </data>
+  <data name="Window.Content.About_Developer" xml:space="preserve">
+    <value>1503工作室开发</value>
+  </data>
+  <data name="Window.Content.About_Owner" xml:space="preserve">
+    <value>北京大学电镜实验室所有</value>
+  </data>
+  <data name="Window.Content.About_SystemName" xml:space="preserve">
+    <value>阴极荧光系统</value>
+  </data>
+  <data name="Window.Title.About" xml:space="preserve">
+    <value>About</value>
+    <comment>关于</comment>
+  </data>
+  <data name="ScanImageToolbar.SampleInterval.20us" xml:space="preserve">
+    <value>20us</value>
+    <comment>扫描图像工具栏-采样间隔-20us</comment>
+  </data>
+  <data name="ScanImageToolbar.SampleInterval.50us" xml:space="preserve">
+    <value>50us</value>
+    <comment>扫描图像工具栏-采样间隔-50us</comment>
+  </data>
+  <data name="Window.Title.MainWindow" xml:space="preserve">
+    <value>Jinjing Technology Ltd. - Cathode Fluorescence System</value>
+    <comment>窗口-标题-金竟科技阴极荧光系统</comment>
+  </data>
+  <data name="OscilloscopeDevicePane.ChannelSettings.InverseImage" xml:space="preserve">
+    <value>Inverse Image</value>
+  </data>
+  <data name="OscilloscopeDevicePane.ChannelSettings.MaxInputFrequencyFormatter" xml:space="preserve">
+    <value>{0}Hz</value>
+  </data>
+  <data name="SynerJYDevicePane.CcdCommands.ConfigureDevice" xml:space="preserve">
+    <value>Configure</value>
+  </data>
+  <data name="SynerJYDevicePane.MonoCommands.ConfigureDevice" xml:space="preserve">
+    <value>Configure</value>
+  </data>
+  <data name="MessageBox.Button.Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="ScanRegionConfirmView.ErrorMessage.HeightExceedsLimitFormatter" xml:space="preserve">
+    <value>The HEIGHT should be between {0} (included) and {1} (included)</value>
+  </data>
+  <data name="ScanRegionConfirmView.ErrorMessage.PointsToScanExceedsLimitFormatter" xml:space="preserve">
+    <value>The POINTS TO SCAN should be between {0} (included) and {1} (included)</value>
+  </data>
+  <data name="ScanRegionConfirmView.ErrorMessage.WidthExceedsLimitFormatter" xml:space="preserve">
+    <value>The WIDTH should be between {0} (included) and {1} (included)</value>
+  </data>
+  <data name="ScanRegionConfirmView.HeightText" xml:space="preserve">
+    <value>Height (Pixel Number):</value>
+  </data>
+  <data name="ScanRegionConfirmView.Message" xml:space="preserve">
+    <value>Please setup the region to scan in and press "Confirm" to start scanning</value>
+  </data>
+  <data name="ScanRegionConfirmView.PointsToScanLabel" xml:space="preserve">
+    <value>Points to Scan:</value>
+  </data>
+  <data name="ScanRegionConfirmView.ResetButton" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ScanRegionConfirmView.Title" xml:space="preserve">
+    <value>Confirm Scan Region</value>
+  </data>
+  <data name="ScanRegionConfirmView.WidthText" xml:space="preserve">
+    <value>Width (Pixel Number):</value>
+  </data>
+  <data name="Window.Title.SaveFileError" xml:space="preserve">
+    <value>Save File Error</value>
+  </data>
+  <data name="ImageEditorView.Button.Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="ImageEditorView.Button.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ImageEditorView.Button.EditImage" xml:space="preserve">
+    <value>Edit Image</value>
+  </data>
+  <data name="ImageEditorView.Button.Return" xml:space="preserve">
+    <value>Return</value>
+  </data>
+  <data name="Window.Title.Snapshots" xml:space="preserve">
+    <value>Snapshots</value>
+  </data>
+  <data name="Window.Title.SpectrumChartInRegion" xml:space="preserve">
+    <value>Spectrum Chart at [{0}, {1}, {2}, {3}]</value>
+  </data>
+  <data name="Window.Content.LoadSnapshotFailed" xml:space="preserve">
+    <value>Load Snapshot Failed</value>
+  </data>
+  <data name="Window.Title.SpectrumIntensityInSelectedRange" xml:space="preserve">
+    <value>Spectrum Intensity Image [{0}-{1}]</value>
+  </data>
+  <data name="SpectrumChartViewModel.QuantityLabel" xml:space="preserve">
+    <value>Quantity: </value>
+  </data>
+  <data name="SpectrumChartViewModel.WaveformLengthLabel" xml:space="preserve">
+    <value>Waveform: </value>
+  </data>
+</root>

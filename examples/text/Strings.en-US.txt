@@ -1,0 +1,355 @@
+#:调试菜单
+Menu.Debug=Debug
+#:调试-查看窗口布局层次菜单项
+Menu.Debug.RadDocking=Print RadDocking Layout
+#:文件菜单
+Menu.File=_File
+#:文件-关闭项目菜单项
+Menu.File.CloseProject=Close Project
+#:文件-退出菜单项
+Menu.File.Exit=Exit
+#:文件-加载布局菜单项
+Menu.File.LoadLayout=Load layout
+#:文件-打开文件菜单项
+Menu.File.OpenFile=Open File...
+#:文件-打开项目菜单项
+Menu.File.OpenProject=Open Project...
+#:文件-保存文件菜单项
+Menu.File.SaveFile=Save File
+#:文件-另存为菜单项
+Menu.File.SaveFileAs=Save File As...
+#:文件-保存布局菜单项
+Menu.File.SaveLayout=Save layout
+#:文件-保存项目菜单项
+Menu.File.SaveProject=Save Project
+#:帮助菜单
+Menu.Help=_Help
+#:帮助-关于菜单项
+Menu.Help.About=About...
+#:窗口菜单
+Menu.Window=_Window
+#:窗口-窗口管理菜单项
+Menu.Window.Management=Window Management...
+#:窗口-视图菜单项
+Menu.Window.Views=Views
+#:窗口-窗口菜单项
+Menu.Window.Windows=Windows
+#:设备状态模式
+Mode.DeviceStatus=Device Status
+#:扫描图像模式
+Mode.ScanImage=Scan Image
+#:光谱曲线模式
+Mode.SpectrumChart=Spectrum
+#:扫描图像工具栏-电子信号
+ScanImageToolbar.ElectronEnabled=Elect. Sig.
+#:扫描图像工具栏-阴极荧光信号
+ScanImageToolbar.FluoEnabled=Fluo. Sig.
+#:扫描图像工具栏-每像素采集点数-16
+ScanImageToolbar.PointsPerPixel.16=16
+#:扫描图像工具栏-每像素采集点数-8
+ScanImageToolbar.PointsPerPixel.8=8
+#:扫描图像工具栏-选区扫描
+ScanImageToolbar.RegionEnabled=Scan in Region
+#:扫描图像工具栏-分辨率-1024
+ScanImageToolbar.Resolution.1024=1024x1024
+#:扫描图像工具栏-分辨率-2048
+ScanImageToolbar.Resolution.2048=2048x2048
+#:扫描图像工具栏-分辨率-512
+ScanImageToolbar.Resolution.512=512x512
+#:扫描图像工具栏-扫描模式-线性扫描
+ScanImageToolbar.ScanMode.Linear=Linear
+#:扫描图像工具栏-扫描模式-阶跃扫描
+ScanImageToolbar.ScanMode.StepChange=Step
+#:扫描图像工具栏-扫描模式-阶跃波形扫描
+ScanImageToolbar.ScanMode.StepWaveform=Step Waveform
+#:扫描图像工具栏-采样间隔-100ns
+ScanImageToolbar.SampleInterval.100ns=100ns
+#:扫描图像工具栏-采样间隔-10us
+ScanImageToolbar.SampleInterval.10us=10us
+#:扫描图像工具栏-采样间隔-15us
+ScanImageToolbar.SampleInterval.15us=15us
+#:扫描图像工具栏-采样间隔-1us
+ScanImageToolbar.SampleInterval.1us=1us
+#:扫描图像工具栏-采样间隔-200ns
+ScanImageToolbar.SampleInterval.200ns=200ns
+#:扫描图像工具栏-采样间隔-2us
+ScanImageToolbar.SampleInterval.2us=2us
+#:扫描图像工具栏-采样间隔-30us
+ScanImageToolbar.SampleInterval.30us=30us
+#:扫描图像工具栏-采样间隔-500ns
+ScanImageToolbar.SampleInterval.500ns=500ns
+#:扫描图像工具栏-采样间隔-5us
+ScanImageToolbar.SampleInterval.5us=5us
+#:扫描图像工具栏-每像素采集点数-1
+ScanImageToolbar.PointsPerPixel.1=1
+#:扫描图像工具栏-每像素采集点数-2
+ScanImageToolbar.PointsPerPixel.2=2
+#:扫描图像工具栏-每像素采集点数-4
+ScanImageToolbar.PointsPerPixel.4=4
+#:窗口-标题-设备状态
+Window.Title.DeviceStatus=Device status
+#:窗口-标题-电子扫描图像
+Window.Title.ElectronScanImage=Electron Scan Image
+#:窗口-标题-阴极荧光扫描图像
+Window.Title.FluorescenceScanImage=Fluorescence Scan Image
+#:窗口-标题-扫描错误
+Window.Title.ScanError=Scan Error
+#:窗口-标题-电子信号监听错误
+Window.Title.ElectronSignalListenerError=Electron Signal Listener Error
+#:窗口-标题-阴极荧光信号监听错误
+Window.Title.FluorescenceSignalListenerError=Fluorescence Signal Listener Error
+#:扫描图像工具栏-分辨率-8
+ScanImageToolbar.Resolution.8=8x8
+#:扫描图像工具栏-快速设置-默认文本
+ScanImageToolbar.QuickSettings.EmptyText=Select a Setting
+#:属性窗口-标题栏-属性名称
+PropertiesPane.Header.Key=Name
+#:属性窗口-标题栏-属性值
+PropertiesPane.Header.Value=Value
+#:窗口-标题-属性
+Window.Title.Properties=Properties
+#:扫描属性-采集时间
+ScanProperties.AcquistionDate=Acquistion Date
+#:扫描属性-每像素样本数
+ScanProperties.PointsPerPixel=Points Per Pixel for Average
+#:扫描属性-采样间隔
+ScanProperties.SampleInterval=Sampling interval
+#:扫描属性-扫描模式
+ScanProperties.ScanMode=Scan Mode
+#:扫描属性-扫描区域-左
+ScanProperties.ScanRegion.Left=Scan Region Left
+#:扫描属性-分辨率
+ScanProperties.ScanRegion.Size=Scan Region Size
+#:扫描属性-扫描区域-高
+ScanProperties.ScanRegion.Height=Scan Region Height
+#:扫描属性-扫描区域-上
+ScanProperties.ScanRegion.Top=Scan Region Top
+#:扫描属性-扫描区域-宽
+ScanProperties.ScanRegion.Width=Scan Region Width
+#:扫描属性-时间单位-微秒
+ScanProperties.TimeUnit.MicroSecond=us
+#:扫描属性-时间单位-毫秒
+ScanProperties.TimeUnit.MillisSecond=ms
+#:扫描属性-时间单位-纳秒
+ScanProperties.TimeUnit.NanoSecond=ns
+#:扫描属性-时间单位-秒
+ScanProperties.TimeUnit.Second=s
+#:扫描图像工具栏-显示遮挡层在非扫描区域
+ScanImageToolbar.RegionMaskEnabled=Show Mask
+#:日志窗口-按钮-关闭
+LogViewer.Button.Close=Close
+#:日志窗口-按钮-打开文件夹
+LogViewer.Button.OpenFolder=Open Folder
+#:日志窗口-过滤-错误
+LogViewer.Filter.Error=Error
+#:日志窗口-过滤-信息
+LogViewer.Filter.Information=Information
+#:日志窗口-过滤-警告
+LogViewer.Filter.Warning=Warning
+#:窗口-标题-日志查看器
+Window.Title.LogViewer=Log Viewer
+#:窗口-标题-打开文件错误
+Window.Title.OpenFileError=Open File Error
+#:窗口-内容-创建日志文件夹失败模板
+Window.Content.CreateLogFolderFailedTemplate=Create folder for logs failed: {0}\n{1}
+#:窗口-标题-错误
+Window.Title.Error=Error
+#:示波器设备页-通用设置-标题
+OscilloscopeDevicePane.GeneralSettings.Title=General Settings
+WaveformGeneratorDevicePane.GeneralSettings.Calibrate=Calibrate
+#:波形发生器设备页-通用设置-设备名称
+WaveformGeneratorDevicePane.GeneralSettings.DeviceNameFormatter=Device Name: {0}
+WaveformGeneratorDevicePane.GeneralSettings.Phase=Phase Samples:
+#:波形发生器设备页-通用设置-刷新设备
+WaveformGeneratorDevicePane.GeneralSettings.RefreshDevice=Refresh Status
+WaveformGeneratorDevicePane.GeneralSettings.SamplingMultiplier=Sampling Multiplier (Refer to Acquiring)
+WaveformGeneratorDevicePane.GeneralSettings.SelfTestDevice=Self Test
+#:波形发生器设备页-通用设置-标题
+WaveformGeneratorDevicePane.GeneralSettings.Title=General Settings
+WaveformGeneratorDevicePane.OutputSettings.ChannelXAxis=Channel X
+WaveformGeneratorDevicePane.OutputSettings.ChannelYAxis=Channel Y
+WaveformGeneratorDevicePane.OutputSettings.EnableAnalogFilter=Enable Analog Filter
+WaveformGeneratorDevicePane.OutputSettings.EnableDigitalFilter=Enable Digital Filter
+WaveformGeneratorDevicePane.OutputSettings.LoadImpedance=Load Impedance
+WaveformGeneratorDevicePane.OutputSettings.OutputImpedance=Output Impedance
+WaveformGeneratorDevicePane.OutputSettings.ChannelXGain=Gain for Channel X:
+#:波形发生器设备页-输出设置-标题
+WaveformGeneratorDevicePane.OutputSettings.Title=Output Settings
+WaveformGeneratorDevicePane.TimingSettings.SampleClockMode=Sample Clock Mode:
+WaveformGeneratorDevicePane.TimingSettings.SampleClockSource=Sample Clock Source:
+WaveformGeneratorDevicePane.TimingSettings.Title=Timing Settings
+WaveformGeneratorDevicePane.GeneralSettings.ConnectDevice=Connect
+WaveformGeneratorDevicePane.GeneralSettings.DisconnectDevice=Disconnect
+Window.Title.NIFgenDeviceStatus=NIFgen Device
+Window.Title.NIScopeDeviceStatus=NIScope Device
+DeviceStatusWindow.Content.ConnectFailedAndTrySimulate=Connect to device failed. Would you try simulate  mode instead?
+DeviceStatusWindow.Header.TrySimulate=Try Simulate?
+MessageBox.Button.Cancel=Cancel
+MessageBox.Button.No=No
+MessageBox.Button.OK=OK
+MessageBox.Button.Yes=Yes
+Utility.OhmFormatter={0} Ohm
+WaveformGeneratorDevicePane.OutputSettings.ClockModeAutomatic=Automatic
+WaveformGeneratorDevicePane.OutputSettings.ClockModeDivideDown=Divide Down
+WaveformGeneratorDevicePane.OutputSettings.ClockModeHighResolution=High Resolution
+WaveformGeneratorDevicePane.OutputSettings.InfinityImpedance=Infinity
+OscilloscopeDevicePane.AcquisitionSettings.Title=Acquisition Settings
+OscilloscopeDevicePane.GeneralSettings.Calibrate=Self Calibration
+OscilloscopeDevicePane.GeneralSettings.ConnectDevice=Connect
+OscilloscopeDevicePane.GeneralSettings.DisconnectDevice=Disconnect
+OscilloscopeDevicePane.GeneralSettings.SelectSelfCalibrateOption=Select the Self Calibration Option:
+OscilloscopeDevicePane.GeneralSettings.RefreshDevice=Refresh
+OscilloscopeDevicePane.GeneralSettings.SelfTestDevice=Self Test
+OscilloscopeDevicePane.GeneralSettings.Simulate=Simulated
+WaveformGeneratorDevicePane.DeviceInfo.SelectDevice=Select NIFgen Device:
+WaveformGeneratorDevicePane.DeviceInfo.Title=Device Info
+WaveformGeneratorDevicePane.ErrorInfo.Code=Code
+WaveformGeneratorDevicePane.ErrorInfo.HardwareState=Hardware State:
+WaveformGeneratorDevicePane.ErrorInfo.Message=Message
+WaveformGeneratorDevicePane.ErrorInfo.Title=Error Info
+WaveformGeneratorDevicePane.GeneralSettings.Simulate=Simulated
+OscilloscopeDevicePane.AcquisitionSettings.AcquisitionType=Acquisition Type:
+OscilloscopeDevicePane.AcquisitionSettings.AllowMoreRecordsThanMemory=Allow Fetching More Records Than Memory
+OscilloscopeDevicePane.AcquisitionSettings.DefaultNumberOfPointsPerRecord=Default Number of Points Per Record
+OscilloscopeDevicePane.AcquisitionSettings.EnforceRealtime=Enforce Realtime
+OscilloscopeDevicePane.AcquisitionSettings.NumberOfRecords=Number of Records
+OscilloscopeDevicePane.AcquisitionSettings.ReferencePosition=Reference Position
+OscilloscopeDevicePane.ChannelSettings.ChannelName=Channel Name
+OscilloscopeDevicePane.ChannelSettings.InputImpedance=Input Impedance
+OscilloscopeDevicePane.ChannelSettings.InputImpedanceFormatter={0} Ohm
+OscilloscopeDevicePane.ChannelSettings.MaxInputFrequency=Max Input Frequency (Hz) (0 for Auto)
+OscilloscopeDevicePane.ChannelSettings.ProbeAttenuation=Probe Attenuation
+OscilloscopeDevicePane.ChannelSettings.ProbeAttenuationFormatter={0} X
+OscilloscopeDevicePane.ChannelSettings.Title=Channel Settings
+OscilloscopeDevicePane.ChannelSettings.VerticalCoupling=Vertical Coupling
+OscilloscopeDevicePane.ChannelSettings.VerticalOffset=Vertical Offset (Volts)
+OscilloscopeDevicePane.ChannelSettings.VerticalRange=Vertical Range (Volts) (i.e. 2 for -1 ~ 1V)
+OscilloscopeDevicePane.DeviceInfo.SelectDevice=Select NIScope Device:
+OscilloscopeDevicePane.DeviceInfo.Title=Device Info
+OscilloscopeDevicePane.DriverOperationEvent.Coercion=Coercion
+OscilloscopeDevicePane.DriverOperationEvent.InterchangeCheck=Interchange Check
+OscilloscopeDevicePane.DriverOperationEvent.MessageFormatter=Message: {0}
+OscilloscopeDevicePane.DriverOperationEvent.Title=Driver Operation Event
+OscilloscopeDevicePane.DriverOperationEvent.TypeFormatter=Type: {0}
+OscilloscopeDevicePane.DriverOperationEvent.Warning=Warning
+DeviceInfoView.BusNumberFormatter=Bus Number: {0}
+DeviceInfoView.ChassisNumberFormatter=Chassis Number: {0}
+DeviceInfoView.ModelFormatter=Model: {0}
+DeviceInfoView.NameFormatter=Resource Name: {0}
+DeviceInfoView.SerialNumberFormatter=Serial Number: {0}
+DeviceInfoView.SlotNumberFormatter=Slot Number: {0}
+DeviceInfoView.SocketNumberFormatter=Socket Number: {0}
+OscilloscopeDevicePane.ChannelSettings.ElectronChannelSetting=Electronical Channel Settings
+OscilloscopeDevicePane.ChannelSettings.FluorescenceChannelSetting=Fluorescent Channel Settings
+WaveformGeneratorDevicePane.OutputSettings.ChannelYGain=Gain for Channel Y:
+DeviceStatusWindow.Content.InitializeFailedAndTrySimulateFormatter=Initialize device {0} failed. Would you try simulate mode instead?
+SynerJYDevicePane.CcdDevice.ChipSizeFormatter=Chip Size: {0}
+SynerJYDevicePane.CcdDevice.DescriptionFormatter=Description: {0}
+SynerJYDevicePane.CcdDevice.FirmwareFormatter=Firmware: {0}
+SynerJYDevicePane.CcdDevice.NameFormatter=Name: {0}
+SynerJYDevicePane.CcdDevice.SelectDevice=Select a CCD
+SynerJYDevicePane.CcdDevice.Title=CCD
+SynerJYDevicePane.CcdGeneralSettings.AcquisitionFormat=Acq. Format
+SynerJYDevicePane.CcdGeneralSettings.Adc=ADC
+SynerJYDevicePane.CcdGeneralSettings.AreaXBin=X Bin
+SynerJYDevicePane.CcdGeneralSettings.AreaXEnd=X End
+SynerJYDevicePane.CcdGeneralSettings.AreaXStart=X Start
+SynerJYDevicePane.CcdGeneralSettings.AreaYBin=Y Bin
+SynerJYDevicePane.CcdGeneralSettings.AreaYEnd=Y End
+SynerJYDevicePane.CcdGeneralSettings.AreaYStart=Y Start
+SynerJYDevicePane.CcdGeneralSettings.Gain=Gain
+SynerJYDevicePane.CcdGeneralSettings.InitializeDevice=Initialize
+SynerJYDevicePane.CcdGeneralSettings.RefreshDevice=Refresh
+SynerJYDevicePane.CcdGeneralSettings.Simulate=Simulate
+SynerJYDevicePane.CcdGeneralSettings.Title=CCD General Settings
+SynerJYDevicePane.CcdGeneralSettings.UninitializeDevice=Uninitialize
+SynerJYDevicePane.MonoCommands.InitializeDevice=Initialize
+SynerJYDevicePane.MonoCommands.RefreshDevice=Refresh
+SynerJYDevicePane.MonoCommands.Simulate=Simulate
+SynerJYDevicePane.MonoCommands.Title=Mono Commands:
+SynerJYDevicePane.MonoCommands.UninitializeDevice=Uninitialize
+SynerJYDevicePane.MonoDevice.SelectDevice=Select a monochromator:
+SynerJYDevicePane.MonoDevice.Title=Monochromator
+SynerJYDevicePane.DeviceStatus.Initialized=Initialized
+SynerJYDevicePane.DeviceStatus.Initializing=Initializing...
+SynerJYDevicePane.DeviceStatus.Uninitialized=Uninitialized
+#:窗口-标题-SynerJY设备
+Window.Title.SynerJYDeviceStatus=SynerJY Devices
+SynerJYDevicePane.CcdGeneralSettings.SaveAreaParams=Save Area Parameters
+SpectrumChartToolbar.AcquireCount.1=1
+SpectrumChartToolbar.AcquireCount.2=2
+SpectrumChartToolbar.AcquireCount.3=3
+SpectrumChartToolbar.AcquireCount.4=4
+SpectrumChartToolbar.AcquireCount.5=5
+SpectrumChartToolbar.AcquireTime.100us=100us
+SpectrumChartToolbar.AcquireTime.10us=10us
+SpectrumChartToolbar.AcquireTime.15us=15us
+SpectrumChartToolbar.AcquireTime.1ms=1ms
+SpectrumChartToolbar.AcquireTime.1us=1us
+SpectrumChartToolbar.AcquireTime.200us=200us
+SpectrumChartToolbar.AcquireTime.2us=2us
+SpectrumChartToolbar.AcquireTime.30us=30us
+SpectrumChartToolbar.AcquireTime.500us=500us
+SpectrumChartToolbar.AcquireTime.5us=5us
+#:窗口-标题-采集光谱错误
+Window.Title.SpectrumListenerError=Fetching Spectrum Data Error
+#:窗口-标题-光谱曲线
+Window.Title.SpectrumChart=Spectrum Chart
+#:窗口-标题-信号发生器错误
+Window.Title.StartGenerationError=Generating Signals Error
+SynerJYDevicePane.CcdGeneralSettings.UseDataEventApi=Use Acquisitioin Api With Update-Data Event
+SynerJYDevicePane.CcdGeneralSettings.UsePollingApi=Use Polling Acquisition Api
+SynerJYDevicePane.CcdGeneralSettings.ShutdownDevice=Shutdown
+SpectrumChartViewModel.Properties.AcquireCount=Acquire Count
+SpectrumChartViewModel.Properties.AcquireTime=Acquire Time
+SpectrumChartViewModel.Properties.CenterWavelength=Center Wavelength
+SpectrumChartViewModel.Properties.DetectorType=Detector
+SpectrumChartViewModel.Properties.FrontEntrance=Front Entrance
+SpectrumChartViewModel.Properties.FrontExit=Front Exit
+SpectrumChartViewModel.Properties.Grating=Grating
+SpectrumChartViewModel.Properties.SideEntrance=Side Entrance
+SpectrumChartViewModel.Properties.SideExit=Side Exit
+Mode.RegionalSpectrumChart=Spectrum (Customized Region)
+Window.Title.SpectrumIntensity=Spectrum Intensity Image
+Window.Title.RegionalSpectrumChart=Regional Spectrum Chart
+ScanProperties.FullSampleSize=Full Sample Size
+ScanProperties.ScanRegion.Bottom=Scan Region Bottom
+ScanProperties.ScanRegion.Right=Scan Region Right
+ScanImageToolbar.QuickSettings.AddSettingButtonText=Add Setting
+ScanImageToolbar.QuickSettings.RemoveSettingButtonText=Remove Setting
+Window.Content.About_Developer=1503工作室开发
+Window.Content.About_Owner=北京大学电镜实验室所有
+Window.Content.About_SystemName=阴极荧光系统
+#:关于
+Window.Title.About=About
+#:扫描图像工具栏-采样间隔-20us
+ScanImageToolbar.SampleInterval.20us=20us
+#:扫描图像工具栏-采样间隔-50us
+ScanImageToolbar.SampleInterval.50us=50us
+#:窗口-标题-金竟科技阴极荧光系统
+Window.Title.MainWindow=Jinjing Technology Ltd. - Cathode Fluorescence System
+OscilloscopeDevicePane.ChannelSettings.InverseImage=Inverse Image
+OscilloscopeDevicePane.ChannelSettings.MaxInputFrequencyFormatter={0}Hz
+SynerJYDevicePane.CcdCommands.ConfigureDevice=Configure
+SynerJYDevicePane.MonoCommands.ConfigureDevice=Configure
+MessageBox.Button.Confirm=Confirm
+ScanRegionConfirmView.ErrorMessage.HeightExceedsLimitFormatter=The HEIGHT should be between {0} (included) and {1} (included)
+ScanRegionConfirmView.ErrorMessage.PointsToScanExceedsLimitFormatter=The POINTS TO SCAN should be between {0} (included) and {1} (included)
+ScanRegionConfirmView.ErrorMessage.WidthExceedsLimitFormatter=The WIDTH should be between {0} (included) and {1} (included)
+ScanRegionConfirmView.HeightText=Height (Pixel Number):
+ScanRegionConfirmView.Message=Please setup the region to scan in and press "Confirm" to start scanning
+ScanRegionConfirmView.PointsToScanLabel=Points to Scan:
+ScanRegionConfirmView.ResetButton=Reset
+ScanRegionConfirmView.Title=Confirm Scan Region
+ScanRegionConfirmView.WidthText=Width (Pixel Number):
+Window.Title.SaveFileError=Save File Error
+ImageEditorView.Button.Apply=Apply
+ImageEditorView.Button.Cancel=Cancel
+ImageEditorView.Button.EditImage=Edit Image
+ImageEditorView.Button.Return=Return
+Window.Title.Snapshots=Snapshots
+Window.Title.SpectrumChartInRegion=Spectrum Chart at [{0}, {1}, {2}, {3}]
+Window.Content.LoadSnapshotFailed=Load Snapshot Failed
+Window.Title.SpectrumIntensityInSelectedRange=Spectrum Intensity Image [{0}-{1}]
+SpectrumChartViewModel.QuantityLabel=Quantity: 
+SpectrumChartViewModel.WaveformLengthLabel=Waveform: 
