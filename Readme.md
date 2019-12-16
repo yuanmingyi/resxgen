@@ -1,10 +1,8 @@
-# ResxGen: Tool for easy localization in WPF development
-> Author: millan.yuan@hotmail.com
+# ResxGen: Tool for collecting string resources from xaml files and convert between text string resources and resx resources in WPF development
 
 # Introduction:
 - ResxGen is a tool which creates easy editing text files for programmers to separate the translation or language work from the coding.
-- Since the pure text file is a common format that anyone can efficiently edit and is independent from any coding related software or knowledge, it's a good way to make teamwork.
-- After the text strings has been made up in the .txt files. This tool can then convert the files into the VS compatible resx resource files
+- With this tool, one can directly write xaml files with resx string represents and get auto generated corresponding resx files. Also the tool will generate a text (.txt) file for easy editing without any coding tools.
 
 # Usage:
 ### The binaries contain three files:
@@ -23,7 +21,7 @@
     ### or 
     `python stringsutil.py -c loc -nsuri "clr-namespace;ResxgenExample.Resources.Strings" Example.xaml View\Example1.xaml`
 - ### add extra blank line between each string
-    `python stringsutil.py -c lex -d Strings -e D;\workspace\ResxgenExample`
+    `python stringsutil.py -c lex -d Strings -e D:\workspace\ResxgenExample`
 
 ## resxgen.exe
 - ### Main executable, convert between text files and resx files. The target files will be overwritten.
@@ -47,7 +45,7 @@
 
 # Tutorial
 ## First time:
-- Create and edit WPF xaml files, for the text in UI, use static string resource or lexlocalizeextension like:
+- Create and edit WPF xaml files using Resx file for the text in UI. In xaml file write code as below (using the <a href="https://github.com/XAMLMarkupExtensions/WPFLocalizationExtension">WPFLocalizationExtension</a>):
 ```
 <UserControl x:Class="Resxgen.Examples.Xaml.LexSample"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -63,7 +61,7 @@
     </Grid>
 </UserControl>
 ```
-- save it as <i>example\xaml\LexSample.xaml</i>, for example.
+- LexLsave it as <i>example\xaml\LexSample.xaml</i>, for example.
 
 - run `
 python stringsutil.py -o examples\text -c lex -l zh-CN,en-US examples\xaml\LexSample.xaml`
