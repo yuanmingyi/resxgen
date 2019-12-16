@@ -21,8 +21,9 @@ class StringResGenerator(object):
     _str_pattern = ''
     _extra_line = False
     _files = []
+    _outdir = ''
 
-    def __init__(self, languages=[], spliter='=', ns='', ns_uri='', ns_pattern='', default_dict='', dict_pattern='', str_pattern='', files = [], extra_line = False):
+    def __init__(self, languages=[], spliter='=', ns='', ns_uri='', ns_pattern='', default_dict='', dict_pattern='', str_pattern='', files = [], extra_line = False, outdir=''):
         self._languages = languages
         self._spliter = spliter
         self._ns = ns
@@ -33,6 +34,7 @@ class StringResGenerator(object):
         self._str_pattern = str_pattern
         self._files = files
         self._extra_line = extra_line
+        self._outdir = outdir
 
     def verify_args(self):
         if not self._ns_uri and not self._ns:
@@ -59,15 +61,15 @@ class StringResGenerator(object):
                     results[dict_] = results[dict_].union(r[dict_])
                 else:
                     results[dict_] = r[dict_]
-        write_keys(results, self._languages, self._spliter, self._extra_line)
+        write_keys(results, self._languages, self._spliter, self._extra_line, self._outdir)
 
 
 def to_re_pattern(uri):
     return uri.replace('.', r'\.')
 
 
-def make_filename(key, lang):
-    return '%s%s.txt' % (key, '.' + lang if lang else '')
+def make_filename(outdir, key, lang):
+    return os.path.join(outdir, '%s%s.txt' % (key, '.' + lang if lang else ''))
 
 
 def filter_keys(fn, spliter):
@@ -126,11 +128,11 @@ def read_keys(xaml_fn, ns, nspat, default_dict, dictpattern, strpattern):
     return dicts
 
 
-def write_keys(dicts, langs, spliter, extra_line):
+def write_keys(dicts, langs, spliter, extra_line, outdir):
     ## fifth, write result to dictionary file
     for lang in langs:
         for dict_ in dicts.keys():
-            fn = make_filename(dict_, lang)
+            fn = make_filename(outdir, dict_, lang)
             exist_keys = filter_keys(fn, spliter)
             new_keys = dicts[dict_]
             if exist_keys.issuperset(new_keys):
@@ -156,6 +158,7 @@ def parse_args(args):
     parser.add_argument('-l', '--lang', default='zh-CN,en-US', help='languages for files to generate. default is \'zh-CN,en-US\'')
     parser.add_argument('-s', '--spliter', default='=', help='split character in the output files, defulat is \'=\'')
     parser.add_argument('-e', '--extra-line', default=False, action='store_true', help='Add extra line after output each string key line, default is False')
+    parser.add_argument('-o', '--outdir', default='', help='output dir')
     parser.add_argument('xaml_paths', nargs='+', metavar='SourceFile(s)', help='xaml files to parse or folder in which to parse all the xaml files')
     return parser.parse_args(args)
 
@@ -173,7 +176,7 @@ def dir_xamls(paths, ext='.xaml'):
         else:
             files.append(pa)
             print('add %s to process' % pa)
-    print();
+    print('');
     return files
 
 
@@ -190,7 +193,7 @@ predefined_config['loc'] =\
 {
  'uri': '',
  'dict_pattern': '',
- 'key_pattern': r'\{\s*x:Static\s+%s:(\w*):\.(\S+)\s*\}'
+ 'key_pattern': r'\{\s*x:Static\s+%s:(\w*)\.(\S+)\s*\}'
 }
 
 if __name__ == '__main__':
@@ -214,7 +217,8 @@ if __name__ == '__main__':
         languages.append('')
     spliter = args.spliter[0] if args.spliter else '='
     paths = dir_xamls(args.xaml_paths)
-    gen = StringResGenerator(languages, spliter, ns, nsuri, nspattern, default_dict, dictpattern, strpattern, paths, extra_line)
+    outdir = args.outdir
+    gen = StringResGenerator(languages, spliter, ns, nsuri, nspattern, default_dict, dictpattern, strpattern, paths, extra_line, outdir)
     if gen.verify_args() == -1:
         exit(0)
     gen.process()
