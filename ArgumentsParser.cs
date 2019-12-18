@@ -10,13 +10,14 @@ namespace resxgen
         public string Outdir = "";
         public bool Inverse = false;
         public bool ExtraLine = false;
+        public int EmptyType = 0;
         public List<string> Dicts = new List<string>();
 
         public string Error { get; private set; }
 
         public static string Usage(string appName)
         {
-            return $"Usage: {appName} [-inv] [-extra] [-dir <source dir>] [-outdir <target dir>] [-sep <seperate character>] <dictionaries...>";
+            return $"Usage: {appName} [-inv] [-extra] [-empty [type]] [-dir <source dir>] [-outdir <target dir>] [-sep <seperate character>] <dictionaries...>";
         }
 
         public ArgumentsParser()
@@ -55,6 +56,15 @@ namespace resxgen
                         return;
                     }
                     Dir = args[++i];
+                }
+                else if (arg.StartsWith("-em"))
+                {
+                    if (i == args.Length - 1)
+                    {
+                        Error = "Empty text missing";
+                        return;
+                    }
+                    EmptyType = int.Parse(args[++i]);
                 }
                 else if (arg.StartsWith("-o"))
                 {

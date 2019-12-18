@@ -28,11 +28,26 @@ namespace resxgen
             _root = _doc.SelectSingleNode("root");
         }
 
-        public void AddRecords(List<Data> data)
+        public void AddRecords(List<Data> data, int emptyType = 0)
         {
             foreach (var rec in data)
             {
-                AddRecord(rec.Name, rec.Value, rec.Comment);
+                var value = rec.Value;
+                if (string.IsNullOrEmpty(value))
+                {
+                    if (emptyType == 1)
+                    {
+                        // use Key as empty text
+                        value = $"[{rec.Name}]";
+                    }
+                    else if (emptyType == 2)
+                    {
+                        // use Empty as empty text
+                        value = "[EMPTY]";
+                    }
+                    // otherwise use the default "" value
+                }
+                AddRecord(rec.Name, value, rec.Comment);
             }
         }
 

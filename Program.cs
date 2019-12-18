@@ -26,7 +26,8 @@ namespace resxgen
             Console.WriteLine($"outdir: {parser.Outdir}");
             Console.WriteLine($"Inverse: {parser.Inverse}");
             Console.WriteLine($"ExtraLine: {parser.ExtraLine}");
-            Console.WriteLine($"sep: {parser.Sep}\n");
+            Console.WriteLine($"sep: {parser.Sep}");
+            Console.WriteLine($"Use empty text type: {parser.EmptyType}\n");
             foreach (var dict in parser.Dicts)
             {
                 if (parser.Inverse)
@@ -35,7 +36,7 @@ namespace resxgen
                 }
                 else
                 {
-                    Text2Resx(parser.Dir, parser.Outdir, parser.Sep, dict);
+                    Text2Resx(parser.Dir, parser.Outdir, parser.Sep, dict, parser.EmptyType);
                 }
             }
         }
@@ -83,7 +84,7 @@ namespace resxgen
             }
         }
 
-        private static void Text2Resx(string dir, string outdir, string sep, string dict)
+        private static void Text2Resx(string dir, string outdir, string sep, string dict, int emptyType)
         {
             var filepaths = GetAllLanguageDictionaries(dict, dir, ".txt");
             foreach (var path in filepaths)
@@ -101,7 +102,7 @@ namespace resxgen
                     outdir = Path.GetDirectoryName(path);
                 }
                 var resxPath = Path.Combine(outdir, $"{filebase}.resx");
-                resxGen.AddRecords(records);
+                resxGen.AddRecords(records, emptyType);
                 resxGen.Save(resxPath);
                 Console.WriteLine($"{resxPath} saved");
             }
