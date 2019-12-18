@@ -1,19 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Xml;
 
 namespace resxgen
 {
     class ResxGenerator
     {
-        private static string _templatePath = "Template.resx";
+        private static string _templateName = "Template.resx";
         private XmlDocument _doc;
         private XmlNode _root;
 
         public ResxGenerator()
         {
+            var processPath = Process.GetCurrentProcess().MainModule.FileName;
+            var templatePath = Path.Combine(Path.GetDirectoryName(processPath), _templateName);
             _doc = new XmlDocument();
-            _doc.Load(_templatePath);
+            _doc.Load(templatePath);
             _root = _doc.SelectSingleNode("root");
         }
 

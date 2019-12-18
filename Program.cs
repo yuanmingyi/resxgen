@@ -11,7 +11,6 @@ namespace resxgen
         {
             if (args.Length < 1)
             {
-
                 Console.WriteLine(ArgumentsParser.Usage(Process.GetCurrentProcess().ProcessName));
                 return;
             }
