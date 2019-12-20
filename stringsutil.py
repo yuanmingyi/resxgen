@@ -22,8 +22,9 @@ class StringResGenerator(object):
     _extra_line = False
     _files = []
     _outdir = ''
+    _generate_dict = ''
 
-    def __init__(self, languages=[], spliter='=', ns='', ns_uri='', ns_pattern='', default_dict='', dict_pattern='', str_pattern='', files = [], extra_line = False, outdir=''):
+    def __init__(self, languages=[], spliter='=', ns='', ns_uri='', ns_pattern='', default_dict='', dict_pattern='', str_pattern='', files=[], extra_line=False, outdir='', generate_dict=''):
         self._languages = languages
         self._spliter = spliter
         self._ns = ns
@@ -35,6 +36,7 @@ class StringResGenerator(object):
         self._files = files
         self._extra_line = extra_line
         self._outdir = outdir
+        self._generate_dict = generate_dict
 
     def verify_args(self):
         if not self._ns_uri and not self._ns:
@@ -43,15 +45,18 @@ class StringResGenerator(object):
         if not self._str_pattern:
             print('key-pattern is not set! Try to use predefined config "lex" or "loc" to have a predefined key-pattern')
             return -1
-        if len(self._files) == 0:
-            print("no xaml files provided")
+        if len(self._files) == 0 and not self._generate_dict:
+            print("no xaml files or generated dictionary provided")
             return -1
-        if not self._default_dict:
+        if not self._default_dict and not self._generate_dict:
             print('default_dict is empty, set to DefaultDict in case the key has no dictionary detected')
             self._default_dict = 'DefaultDict'
         return 0
 
     def process(self):
+        if not not self._generate_dict:
+            generate_dictionary(self._outdir, self._generate_dict, self._languages)
+            return
         nspat = re.compile(self._ns_pattern % to_re_pattern(self._ns_uri)) if self._ns_uri else ''
         results = dict()
         for file in self._files:
@@ -62,6 +67,15 @@ class StringResGenerator(object):
                 else:
                     results[dict_] = r[dict_]
         write_keys(results, self._languages, self._spliter, self._extra_line, self._outdir)
+
+
+def generate_dictionary(outdir, dict_, langs):
+    for lang in langs:
+        filename = make_filename(outdir, dict_, lang)
+        if not os.path.exists(filename):
+            with open(filename, "w") as f:
+                print('create dictionary %s' % filename)
+                f.write('## Created by %s at %s\n' % (__file__, str(datetime.datetime.now())))
 
 
 def to_re_pattern(uri):
@@ -159,7 +173,8 @@ def parse_args(args):
     parser.add_argument('-s', '--spliter', default='=', help='split character in the output files, defulat is \'=\'')
     parser.add_argument('-e', '--extra-line', default=False, action='store_true', help='Add extra line after output each string key line, default is False')
     parser.add_argument('-o', '--outdir', default='', help='output dir')
-    parser.add_argument('xaml_paths', nargs='+', metavar='SourceFile(s)', help='xaml files to parse or folder in which to parse all the xaml files')
+    parser.add_argument('-g', '--generate-dict', required=False, help='generate dictionary directly')
+    parser.add_argument('xaml_paths', nargs='*', metavar='SourceFile(s)', help='xaml files to parse or folder in which to parse all the xaml files')
     return parser.parse_args(args)
 
 
@@ -218,7 +233,8 @@ if __name__ == '__main__':
     spliter = args.spliter[0] if args.spliter else '='
     paths = dir_xamls(args.xaml_paths)
     outdir = args.outdir
-    gen = StringResGenerator(languages, spliter, ns, nsuri, nspattern, default_dict, dictpattern, strpattern, paths, extra_line, outdir)
+    generate_dict = args.generate_dict
+    gen = StringResGenerator(languages, spliter, ns, nsuri, nspattern, default_dict, dictpattern, strpattern, paths, extra_line, outdir, generate_dict)
     if gen.verify_args() == -1:
         exit(0)
     gen.process()

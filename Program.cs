@@ -70,6 +70,7 @@ namespace resxgen
                 var records = resxGen.ReadRecords();
                 if (records == null || records.Count == 0)
                 {
+                    Console.WriteLine($"no record found in {path}. pass");
                     continue;
                 }
                 string filebase = Path.GetFileNameWithoutExtension(path);
@@ -93,6 +94,7 @@ namespace resxgen
                 var records = TextParser.Parse(path, sep);
                 if (records == null || records.Count == 0)
                 {
+                    Console.WriteLine($"No record found in {path}. pass");
                     continue;
                 }
                 string filebase = Path.GetFileNameWithoutExtension(path);

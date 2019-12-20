@@ -14,19 +14,19 @@ namespace resxgen
             for (int lineno = 0; lineno < lines.Length; lineno++)
             {
                 var line = lines[lineno];
-                if (line.StartsWith("#:"))
+                if (line.StartsWith("#:", StringComparison.Ordinal))
                 {
                     // add comment
                     comment = line.Substring(2);
                 }
-                else if (line.StartsWith("#") || string.IsNullOrWhiteSpace(line))
+                else if (line.StartsWith("#", StringComparison.Ordinal) || string.IsNullOrWhiteSpace(line))
                 {
                     // skip the comments and empty lines
                     comment = null;
                 }
                 else
                 {
-                    var idx = line.IndexOf(sep);
+                    var idx = line.IndexOf(sep, StringComparison.Ordinal);
                     if (idx < 0)
                     {
                         Console.Error.WriteLine($"Invalid format in line {lineno+1}: {line}");
