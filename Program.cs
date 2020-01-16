@@ -27,16 +27,18 @@ namespace resxgen
             Console.WriteLine($"Inverse: {parser.Inverse}");
             Console.WriteLine($"ExtraLine: {parser.ExtraLine}");
             Console.WriteLine($"sep: {parser.Sep}");
-            Console.WriteLine($"Use empty text type: {parser.EmptyType}\n");
+            Console.WriteLine($"Use empty text type: {parser.EmptyType}");
+            Console.WriteLine($"namespace: {parser.Namespace}\n");
             foreach (var dict in parser.Dicts)
             {
+                Console.WriteLine($"Dictionary: {dict}");
                 if (parser.Inverse)
                 {
                     Resx2Text(parser.Dir, parser.Outdir, parser.Sep, dict, parser.ExtraLine);
                 }
                 else
                 {
-                    Text2Resx(parser.Dir, parser.Outdir, parser.Sep, dict, parser.EmptyType);
+                    Text2Resx(parser.Dir, parser.Outdir, parser.Namespace, parser.Sep, dict, parser.EmptyType);
                 }
             }
         }
@@ -66,8 +68,7 @@ namespace resxgen
             var filepaths = GetAllLanguageDictionaries(dict, dir, ".resx");
             foreach (var path in filepaths)
             {
-                var resxGen = new ResxGenerator(path);
-                var records = resxGen.ReadRecords();
+                var records = ResxGenerator.ReadRecords(path);
                 if (records == null || records.Count == 0)
                 {
                     Console.WriteLine($"no record found in {path}. pass");
@@ -85,7 +86,7 @@ namespace resxgen
             }
         }
 
-        private static void Text2Resx(string dir, string outdir, string sep, string dict, int emptyType)
+        private static void Text2Resx(string dir, string outdir, string ns, string sep, string dict, int emptyType)
         {
             var filepaths = GetAllLanguageDictionaries(dict, dir, ".txt");
             foreach (var path in filepaths)
@@ -107,7 +108,17 @@ namespace resxgen
                 resxGen.AddRecords(records, emptyType);
                 resxGen.Save(resxPath);
                 Console.WriteLine($"{resxPath} saved");
+                if (ShouldSaveDesignerClass(dict, filebase))
+                {
+                    resxGen.SaveDesignerClass(outdir, filebase, ns);
+                    Console.WriteLine($"{filebase}.Designer.cs saved");
+                }
             }
+        }
+
+        private static bool ShouldSaveDesignerClass(string dict, string filebase)
+        {
+            return filebase.ToLowerInvariant().Equals(dict.ToLowerInvariant());
         }
     }
 }

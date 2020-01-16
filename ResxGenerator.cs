@@ -1,31 +1,42 @@
-﻿using System;
+﻿using Microsoft.CSharp;
+using System;
+using System.CodeDom;
+using System.CodeDom.Compiler;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Resources;
+using System.Resources.Tools;
 using System.Xml;
 
 namespace resxgen
 {
     class ResxGenerator
     {
-        private static string _templateName = "Template.resx";
-        private XmlDocument _doc;
-        private XmlNode _root;
+        private Dictionary<string, Data> _data;
 
         public ResxGenerator()
         {
-            var processPath = Process.GetCurrentProcess().MainModule.FileName;
-            var templatePath = Path.Combine(Path.GetDirectoryName(processPath), _templateName);
-            _doc = new XmlDocument();
-            _doc.Load(templatePath);
-            _root = _doc.SelectSingleNode("root");
+            _data = new Dictionary<string, Data>();
         }
 
-        public ResxGenerator(string filepath)
+        public static List<Data> ReadRecords(string filepath)
         {
-            _doc = new XmlDocument();
-            _doc.Load(filepath);
-            _root = _doc.SelectSingleNode("root");
+            ITypeResolutionService typeres = null;
+            var data = new List<Data>();
+            using (var rr = new ResXResourceReader(filepath))
+            {
+                rr.UseResXDataNodes = true;
+                foreach (DictionaryEntry d in rr)
+                {
+                    var node = (ResXDataNode)d.Value;
+                    data.Add(new Data(node.Name, (string)node.GetValue(typeres), node.Comment));
+                }
+            }
+            return data;
         }
 
         public void AddRecords(List<Data> data, int emptyType = 0)
@@ -47,79 +58,47 @@ namespace resxgen
                     }
                     // otherwise use the default "" value
                 }
-                AddRecord(rec.Name, value, rec.Comment);
-            }
-        }
-
-        public List<Data> ReadRecords()
-        {
-            var records = new List<Data>();
-            try
-            {
-                foreach (XmlNode node in _root.ChildNodes)
+                if (_data.ContainsKey(rec.Name))
                 {
-                    if (node.Name == "data")
-                    {
-                        var name = ((XmlElement)node).GetAttribute("name");
-                        string value = "", comment = "";
-                        foreach (XmlNode n in node.ChildNodes)
-                        {
-                            if (n.Name == "value")
-                            {
-                                value = n.InnerText;
-                            }
-                            else if (n.Name == "comment")
-                            {
-                                comment = n.InnerText;
-                            }
-                        }
-                        records.Add(new Data(name, value, comment));
-                    }
+                    Console.WriteLine($"[Warning] IGNORED resource key \"{rec.Name}\" since already exists!!");
+                }
+                else
+                {
+                    _data.Add(rec.Name, new Data(rec.Name, value, rec.Comment));
                 }
             }
-            catch (Exception ex)
+        }
+
+        public void Save(string resxPath)
+        {
+            using (var rw = new ResXResourceWriter(resxPath))
             {
-                Console.Error.WriteLine($"Parse xaml file failed: {ex.Message}");
-                Console.Error.WriteLine($"{ex.StackTrace}");
-                return null;
+                foreach (var item in _data.Values)
+                {
+                    rw.AddResource(new ResXDataNode(item.Name, item.Value) { Comment = item.Comment });
+                }
+                rw.Generate();
             }
-            return records;
         }
 
-        /// <summary>
-        /// the template of data is:
-        /// <data name="Name" xml:space="preserve">
-        ///     <value>Value</value>
-        ///     <comment>Comment</comment>
-        /// </data>
-        /// </summary>
-        public void AddRecord(string name, string value, string comment)
+        public void SaveDesignerClass(string outdir, string className, string ns)
         {
-            var rec = _doc.CreateElement("data");
-            var xelName = _doc.CreateAttribute("name");
-            var xelSpace = _doc.CreateAttribute("xml:space");
-            xelName.InnerText = name;
-            xelSpace.InnerText = "preserve";
-            rec.SetAttributeNode(xelName);
-            rec.SetAttributeNode(xelSpace);
-            AddNode(rec, "value", value);
-            if (!string.IsNullOrEmpty(comment))
+            var designerCsPath = Path.Combine(outdir, $"{className}.Designer.cs");
+            string[] errors;
+            var codeProvider = new Microsoft.CSharp.CSharpCodeProvider();
+            var data = _data.ToDictionary(d => d.Key, d => d.Value.Value);
+            var code = StronglyTypedResourceBuilder.Create(data, className, ns, codeProvider, false, out errors);
+            if (errors.Length > 0)
             {
-                AddNode(rec, "comment", comment);
+                foreach (var error in errors)
+                {
+                    Console.WriteLine(error);
+                }
             }
-            _root.AppendChild(rec);
-        }
-
-        public void Save(string path)
-        {
-            _doc.Save(path);
-        }
-
-        private void AddNode(XmlElement parent, string name, string value)
-        {
-            var ele = _doc.CreateElement(name);
-            ele.InnerText = value;
-            parent.AppendChild(ele);
+            using (StreamWriter writer = new StreamWriter(designerCsPath, false, System.Text.Encoding.UTF8))
+            {
+                codeProvider.GenerateCodeFromCompileUnit(code, writer, new CodeGeneratorOptions());
+            }
         }
     }
 }

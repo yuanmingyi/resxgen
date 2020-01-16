@@ -12,12 +12,13 @@ namespace resxgen
         public bool ExtraLine = false;
         public int EmptyType = 0;
         public List<string> Dicts = new List<string>();
+        public string Namespace = "";
 
         public string Error { get; private set; }
 
         public static string Usage(string appName)
         {
-            return $"Usage: {appName} [-inv] [-extra] [-empty [type]] [-dir <source dir>] [-outdir <target dir>] [-sep <seperate character>] <dictionaries...>";
+            return $"Usage: {appName} [-inv] [-extra] [-empty [type]] [-ns <namespace>] [-dir <source dir>] [-outdir <target dir>] [-sep <seperate character>] <dictionaries...>";
         }
 
         public ArgumentsParser()
@@ -56,6 +57,15 @@ namespace resxgen
                         return;
                     }
                     Dir = args[++i];
+                }
+                else if (arg.StartsWith("-ns"))
+                {
+                    if (i == args.Length - 1)
+                    {
+                        Error = "Namespace missing";
+                        return;
+                    }
+                    Namespace = args[++i];
                 }
                 else if (arg.StartsWith("-em"))
                 {
